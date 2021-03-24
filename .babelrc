@@ -1,0 +1,25 @@
+{
+  "presets": ["@babel/preset-react", "@babel/core", "@babel/preset-env"],
+  "plugins": [
+    [
+      "styled-components",
+      {
+        "displayName": true,
+        "preprocess": false
+      }
+    ],
+    [
+      "module-resolver",
+      {
+        "root": ["./"],
+        "alias": {
+          "hooks": "./hooks",
+          "components": "./components",
+          "helpers": "./helpers",
+          "layouts": "./layouts",
+          "styles": "./styles"
+        }
+      }
+    ]
+  ]
+}
