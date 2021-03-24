@@ -11,13 +11,13 @@
     [
       "module-resolver",
       {
-        "root": ["./"],
+        "root": ["./src"],
         "alias": {
-          "hooks": "./hooks",
-          "components": "./components",
-          "helpers": "./helpers",
-          "layouts": "./layouts",
-          "styles": "./styles"
+          "hooks": "./src/hooks",
+          "components": "./src/components",
+          "helpers": "./src/helpers",
+          "layouts": "./src/layouts",
+          "styles": "./src/styles"
         }
       }
     ]
