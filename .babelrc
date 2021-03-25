@@ -18,7 +18,8 @@
           "@helpers": "./src/helpers",
           "@layouts": "./src/layouts",
           "@styles": "./src/styles",
-          "@helpers": "./src/helpers"
+          "@helpers": "./src/helpers",
+          "@icons": "./src/components/Icons/index.js"
         }
       }
     ]

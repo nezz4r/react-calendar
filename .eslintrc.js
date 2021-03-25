@@ -30,5 +30,7 @@ module.exports = {
     'react/jsx-one-expression-per-line': 'off',
     'comma-dangle': 'off',
     'no-shadow': 'off',
+    'object-curly-newline': 'off',
+    'no-nested-ternary': 'off',
   },
 };
