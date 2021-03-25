@@ -1,6 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
 import moment from 'moment';
-import useLocalStorage from 'hooks/useLocalStorage';
 import { buildCalendar } from 'helpers';
 
 const CalendarContext = React.createContext();
