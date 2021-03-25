@@ -13,6 +13,9 @@ export const Variables = `
   --light: #f2f2f2;
   --light2: #e4e4e4;
   --dark: #222222;
+  --dark2: #444444;
+  --grey: #666666;
+  
 
   /* Fonts */
   --font-body: "Open Sans", sans-serif;
