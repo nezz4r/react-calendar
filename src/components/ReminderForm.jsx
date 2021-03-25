@@ -21,6 +21,7 @@ export default function ReminderForm() {
     reminders,
     setReminders,
     setModalOpen,
+    currentReminder,
     currentReminderIndex,
   } = useReminders();
 
@@ -43,11 +44,35 @@ export default function ReminderForm() {
   function handleSubmit(e) {
     e.preventDefault();
     const newReminder = new ReminderClass(title, desc, date, time, city, color);
-    const newReminderArr = reminders.slice();
-    if (currentReminderIndex) {
-      newReminderArr.splice(currentReminderIndex, 1);
-    }
+
+    const newReminderArr = reminders.filter((reminder) => {
+      if (reminder != currentReminder) {
+        return true;
+      }
+      return false;
+    });
+
     newReminderArr.push(newReminder);
+    setReminders(newReminderArr);
+    setModalOpen(false);
+    setTime(moment(new Date()).format('HH:mm'));
+    setDesc('');
+    setColor('black');
+    setTitle('');
+    setDate('');
+    setCity('');
+  }
+
+  function handleDelete(e) {
+    e.preventDefault();
+
+    const newReminderArr = reminders.filter((reminder) => {
+      if (reminder != currentReminder) {
+        return true;
+      }
+      return false;
+    });
+
     setReminders(newReminderArr);
     setModalOpen(false);
     setTime(moment(new Date()).format('HH:mm'));
@@ -71,6 +96,7 @@ export default function ReminderForm() {
           required
         />
       </FieldWrapper>
+
       <FieldWrapper>
         <FieldTitle htmlFor="desc">Description</FieldTitle>
         <textarea
@@ -94,6 +120,7 @@ export default function ReminderForm() {
           required
         />
       </FieldWrapper>
+
       <FieldWrapper>
         <FieldTitle htmlFor="date">Date</FieldTitle>
         <input
@@ -139,9 +166,11 @@ export default function ReminderForm() {
           ))}
         </ColorWrapper>
       </FieldWrapper>
+
       <ButtonWrapper>
         <DeleteButton
-          style={{ display: currentReminderIndex ? 'block' : 'none' }}
+          style={{ display: currentReminder ? 'block' : 'none' }}
+          onClick={handleDelete}
           type="button"
         >
           Delete
