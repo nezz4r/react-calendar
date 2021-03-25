@@ -33,3 +33,13 @@ export function isToday(day) {
 export function isWeekend(day) {
   return day.day() === 0 || day.day() === 6;
 }
+
+export class ReminderClass {
+  constructor(desc, date, time, city, color) {
+    this.desc = desc;
+    this.date = date;
+    this.time = time;
+    this.city = city;
+    this.color = color;
+  }
+}
