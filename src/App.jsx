@@ -1,11 +1,11 @@
 import { GlobalStyle } from 'styles/globalStyle';
-import Day from './components/Day';
+import Calendar from 'components/Calendar';
 
 function App() {
   return (
     <>
       <GlobalStyle />
-      <Day />
+      <Calendar />
     </>
   );
 }
