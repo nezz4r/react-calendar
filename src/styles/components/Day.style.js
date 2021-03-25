@@ -60,7 +60,7 @@ export const Button = styled.button`
   border: none;
   opacity: 0;
   background: none;
-  transition: all 0.2s ease;
+  transition: opacity 0.2s ease;
   z-index: 2;
 
   &:focus {
