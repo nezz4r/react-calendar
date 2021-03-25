@@ -13,3 +13,23 @@ export function buildCalendar(value) {
   }
   return calendar;
 }
+
+export function isSelected(day, value) {
+  return value.isSame(day, 'day');
+}
+
+export function isBeforeToday(day) {
+  return day.isBefore(new Date(), 'day');
+}
+
+export function isSameMonth(day, value) {
+  return day.isSame(value, 'month');
+}
+
+export function isToday(day) {
+  return day.isSame(new Date(), 'day');
+}
+
+export function isWeekend(day) {
+  return day.day() === 0 || day.day() === 6;
+}
