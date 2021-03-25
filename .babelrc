@@ -1,5 +1,5 @@
 {
-  "presets": ["@babel/preset-react", "@babel/core", "@babel/preset-env"],
+  "presets": ["@babel/preset-react"],
   "plugins": [
     [
       "styled-components",
@@ -13,11 +13,12 @@
       {
         "root": ["./src"],
         "alias": {
-          "hooks": "./src/hooks",
-          "components": "./src/components",
-          "helpers": "./src/helpers",
-          "layouts": "./src/layouts",
-          "styles": "./src/styles"
+          "@hooks": "./src/hooks",
+          "@components": "./src/components",
+          "@helpers": "./src/helpers",
+          "@layouts": "./src/layouts",
+          "@styles": "./src/styles",
+          "@helpers": "./src/helpers"
         }
       }
     ]

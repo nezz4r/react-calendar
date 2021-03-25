@@ -3,7 +3,12 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: ['plugin:react/recommended', 'airbnb'],
+  extends: [
+    'plugin:react/recommended',
+    'airbnb',
+    'react-app',
+    'react-app/jest',
+  ],
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
@@ -21,5 +26,9 @@ module.exports = {
     'import/no-unresolved': 'off',
     'implicit-arrow-linebreak': 'off',
     'react/no-array-index-key': 'off',
+    'no-unused-vars': 'warn',
+    'react/jsx-one-expression-per-line': 'off',
+    'comma-dangle': 'off',
+    'no-shadow': 'off',
   },
 };
