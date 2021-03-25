@@ -1,73 +1,45 @@
-import { useState } from 'react';
-import { Wrapper, Box, Title, Button } from 'styles/components/Day.style';
-import { isSelected, isToday, isSameMonth, isWeekend } from 'helpers';
-import { useCalendar } from 'contexts/CalendarContext';
-import { useReminders } from 'contexts/RemindersContext';
 import moment from 'moment';
+
+import { Wrapper, Box, Title, Button } from 'styles/components/Day.style';
 import { ThreeDots } from '@icons';
 import Reminder from 'components/Reminder';
-import ReminderModal from 'components/ReminderModal';
+import { useCalendar } from 'contexts/CalendarContext';
+import { useReminders } from 'contexts/RemindersContext';
 
-const arrFill = [
-  {
-    desc: 'this is a reminder',
-    date: '20210322',
-    time: '2030',
-    color: 'turquoise',
-  },
-  {
-    desc: 'this is a reminder',
-    date: '2021-03-24',
-    time: '2030',
-    color: 'red',
-  },
-  {
-    desc: 'this is a reminder',
-    date: '2021-03-24',
-    time: '2030',
-    color: 'turquoise',
-  },
-  {
-    desc: 'this is a reminder',
-    date: '2021-03-24',
-    time: '2030',
-    color: 'turquoise',
-  },
-  {
-    desc: 'this is a reminder',
-    date: '2021-03-24',
-    time: '2030',
-    color: 'turquoise',
-  },
-  {
-    desc: 'this is a reminder',
-    date: '2021-03-26',
-    time: '2030',
-    color: 'blue',
-  },
-];
+import { isSelected, isToday, isSameMonth, isWeekend } from 'helpers';
 
 export default function Day({ children, day, ...props }) {
-  const [unfilteredReminders, setUR] = useState(arrFill);
-  const { modalDay, setModalDay, setModalOpen } = useReminders();
+  const {
+    setModalDay,
+    setModalOpen,
+    reminders,
+    setOpenReminders,
+    setCurrentReminder,
+    setCurrentReminderIndex,
+  } = useReminders();
   const { value } = useCalendar();
-
-  const reminders = unfilteredReminders.filter((reminder) => {
-    return day.isSame(moment(reminder.date), 'day');
-    console.log('');
-  });
-
+  // prettier-ignore
+  const filteredReminders = reminders.filter((reminder) => day.isSame(moment(reminder.date), 'day'));
+  // prettier-ignore
+  const sortedReminders = filteredReminders.sort(
+    (a, b) =>
+      moment(`${a.date} ${a.time}`).format('HHmm')
+      - moment(`${b.date} ${b.time}`).format('HHmm')
+  );
   function handleClick() {
     setModalOpen(true);
     setModalDay(day);
+    setOpenReminders(sortedReminders);
+    setCurrentReminder(null);
+    setCurrentReminderIndex(null);
   }
 
   return (
     <Wrapper>
-      <Button onClick={handleClick}>
+      <Button onClick={() => handleClick()}>
         <ThreeDots />
       </Button>
-      <ReminderModal />
+
       <Box
         selected={isSelected(day, value)}
         before={!isSameMonth(day, value)}
@@ -75,8 +47,17 @@ export default function Day({ children, day, ...props }) {
         {...props}
       >
         <Title today={isToday(day)}>{children}</Title>
-        {reminders.map((reminder) => (
-          <Reminder color={reminder.color}>{reminder.desc}</Reminder>
+        {sortedReminders.map((reminder, index) => (
+          <Reminder
+            day={day}
+            sortedReminders={sortedReminders}
+            reminder={reminder}
+            index={index}
+            key={index}
+            color={reminder.color}
+          >
+            {reminder.desc}
+          </Reminder>
         ))}
       </Box>
     </Wrapper>

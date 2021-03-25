@@ -4,6 +4,7 @@ export const Wrapper = styled.div`
   position: relative;
   width: calc(100% / 7);
   height: 100px;
+
   &:hover > button {
     opacity: 1;
   }
@@ -29,6 +30,7 @@ export const Box = styled.div`
     ${({ before, selected }) => (before ? '0.9' : selected ? '0.95' : '1')}
   );
   overflow: scroll;
+
   &:hover {
     filter: brightness(0.95);
     & > button {
@@ -60,6 +62,7 @@ export const Button = styled.button`
   background: none;
   transition: all 0.2s ease;
   z-index: 2;
+
   &:focus {
     outline: none;
   }

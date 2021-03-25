@@ -16,10 +16,10 @@ export default function Calendar() {
     <Wrapper>
       <Header />
       <Month>
-        {calendar.map((week) => (
-          <Week>
-            {week.map((day) => (
-              <Day day={day} onClick={() => setValue(day)}>
+        {calendar.map((week, index) => (
+          <Week key={index}>
+            {week.map((day, index) => (
+              <Day day={day} key={index} onClick={() => setValue(day)}>
                 {day.format('D')}
               </Day>
             ))}

@@ -29,8 +29,8 @@ export default function Header({ children, ...props }) {
         <ArrowRightIcon onClick={() => setValue(nextMonth())} />
       </TitleWrapper>
       <WeekDaysWrapper>
-        {weekDays.map((day) => (
-          <WeekDay>{day}</WeekDay>
+        {weekDays.map((day, index) => (
+          <WeekDay key={index}>{day}</WeekDay>
         ))}
       </WeekDaysWrapper>
     </>
