@@ -10,6 +10,7 @@ export const GlobalStyle = createGlobalStyle`
   ${Variables}
 
   
-  background: #e4e4e4;
+  background: var(--light);
+  font-family: var(--font-body);
 
 `;

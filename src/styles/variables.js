@@ -1,11 +1,23 @@
 export const Variables = `
 :root {
-  --rm-blue: blue;
-  --rm-green: green;
-  --rm-yellow: yellow;
-  --rm-orange: orange;
-  --rm-brown: brown;
-  --rm-red: red;
-  --rm-black: black;
+  /* Colors */
+  --rm-black: #222222;
+  --rm-turquoise: #5DD9C1;
+  --rm-blue: #33658A;
+  --rm-yellow: #F6AE2D;
+  --rm-orange: #F26419;
+  --rm-pink: #D14081;
+  --rm-red: #C1292E;
+  --rm-brown: #60463B;
+
+  --light: #f2f2f2;
+  --light2: #e4e4e4;
+  --dark: #222222;
+
+  /* Fonts */
+  --font-body: "Open Sans", sans-serif;
+  --font-title: "Montserrat", sans-serif;
+
+  
 }
 `;
