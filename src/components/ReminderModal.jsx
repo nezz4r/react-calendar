@@ -1,21 +1,23 @@
 import { Wrapper, CloseButton } from 'styles/components/ReminderModal.style';
 import { useReminders } from 'contexts/RemindersContext';
 import ReminderForm from 'components/ReminderForm';
-import Reminder from 'components/Reminder';
+import { CloseIcon } from '@icons';
 
 export default function ReminderModal({ children, ...props }) {
-  const { isModalOpen, setModalOpen, openReminders } = useReminders();
+  const { isModalOpen, setModalOpen } = useReminders();
+
+  function handleClose() {
+    setModalOpen(false);
+  }
 
   return (
     <Wrapper isOpen={isModalOpen} {...props}>
-      <CloseButton onClick={() => setModalOpen(false)} />
-      <ReminderForm />
-
-      {openReminders?.map((reminder, index) => (
-        <Reminder key={index} color={reminder.color}>
-          {reminder.title}
-        </Reminder>
-      ))}
+      <div>
+        <CloseButton onClick={handleClose}>
+          <CloseIcon />
+        </CloseButton>
+        <ReminderForm />
+      </div>
     </Wrapper>
   );
 }
