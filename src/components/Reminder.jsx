@@ -1,8 +1,8 @@
 import { Wrapper } from 'styles/components/Reminder.style';
 import { useReminders } from 'contexts/RemindersContext';
+import { useForm } from 'contexts/FormContext';
 
 export default function Reminder({
-  day,
   reminder,
   index,
   sortedReminders,
@@ -10,27 +10,31 @@ export default function Reminder({
   ...props
 }) {
   const {
-    setModalDay,
     setModalOpen,
     setOpenReminders,
-    currentReminderIndex,
     setCurrentReminder,
     setCurrentReminderIndex,
   } = useReminders();
 
+  const { setDate, setTime, setDesc, setTitle, setColor, setCity } = useForm();
+
   function handleReminderClick() {
     setModalOpen(true);
-    setModalDay(reminder.date);
-
+    setDate(reminder.date);
+    setTime(reminder.time);
+    setDesc(reminder.desc);
+    setTitle(reminder.title);
+    setColor(reminder.color);
+    setCity(reminder.city);
     setOpenReminders(sortedReminders);
     setCurrentReminder(reminder);
     setCurrentReminderIndex(index);
-    console.log(currentReminderIndex);
   }
 
   return (
     <Wrapper onClick={handleReminderClick} {...props}>
-      {children}
+      <span>{reminder?.title}</span>
+      <span>{reminder.time}</span>
     </Wrapper>
   );
 }

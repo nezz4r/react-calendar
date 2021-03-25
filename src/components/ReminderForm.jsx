@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import moment from 'moment';
 import {
   RadioInput,
@@ -6,30 +5,23 @@ import {
   RadioSpan,
   FieldTitle,
   FieldWrapper,
+  ButtonWrapper,
+  SaveButton,
+  DeleteButton,
+  ColorWrapper,
+  Form,
 } from 'styles/components/ReminderForm.style';
 
 import { useReminders } from 'contexts/RemindersContext';
 import { useForm } from 'contexts/FormContext';
 import { ReminderClass } from 'helpers';
 
-const colors = [
-  'black',
-  'turquoise',
-  'blue',
-  'yellow',
-  'orange',
-  'pink',
-  'red',
-  'brown',
-];
-
 export default function ReminderForm() {
   const {
     reminders,
     setReminders,
-    modalDay,
     setModalOpen,
-    currentReminder,
+    currentReminderIndex,
   } = useReminders();
 
   const {
@@ -45,30 +37,29 @@ export default function ReminderForm() {
     setColor,
     city,
     setCity,
+    colorsArray,
   } = useForm();
-
-  useEffect(() => {
-    setDate(moment(modalDay).format('YYYY-MM-DD'));
-  }, [modalDay]);
 
   function handleSubmit(e) {
     e.preventDefault();
     const newReminder = new ReminderClass(title, desc, date, time, city, color);
     const newReminderArr = reminders.slice();
-    if (currentReminder) {
-      newReminderArr.pop(currentReminder);
+    if (currentReminderIndex) {
+      newReminderArr.splice(currentReminderIndex, 1);
     }
-
     newReminderArr.push(newReminder);
     setReminders(newReminderArr);
     setModalOpen(false);
     setTime(moment(new Date()).format('HH:mm'));
     setDesc('');
     setColor('black');
+    setTitle('');
+    setDate('');
+    setCity('');
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit}>
       <FieldWrapper>
         <FieldTitle htmlFor="title">Title</FieldTitle>
         <input
@@ -129,24 +120,34 @@ export default function ReminderForm() {
 
       <FieldWrapper>
         <FieldTitle>Color</FieldTitle>
-        {colors.map((colorProp) => (
-          <span key={`${colorProp}-wrap`}>
-            <RadioInput
-              defaultChecked={colorProp === color}
-              type="radio"
-              name="color"
-              id={colorProp}
-              value={colorProp}
-              onClick={() => setColor(colorProp)}
-              key={colorProp}
-            />
-            <RadioLabel key={`${colorProp}-label`} htmlFor={colorProp}>
-              <RadioSpan key={`${colorProp}-span`} color={colorProp} />
-            </RadioLabel>
-          </span>
-        ))}
+        <ColorWrapper>
+          {colorsArray.map((colorProp) => (
+            <>
+              <RadioInput
+                checked={colorProp === color}
+                type="radio"
+                name="color"
+                id={colorProp}
+                value={colorProp}
+                onClick={() => setColor(colorProp)}
+                key={colorProp}
+              />
+              <RadioLabel key={`${colorProp}-label`} htmlFor={colorProp}>
+                <RadioSpan key={`${colorProp}-span`} color={colorProp} />
+              </RadioLabel>
+            </>
+          ))}
+        </ColorWrapper>
       </FieldWrapper>
-      <button type="submit">Submit</button>
-    </form>
+      <ButtonWrapper>
+        <DeleteButton
+          style={{ display: currentReminderIndex ? 'block' : 'none' }}
+          type="button"
+        >
+          Delete
+        </DeleteButton>
+        <SaveButton type="submit">Save</SaveButton>
+      </ButtonWrapper>
+    </Form>
   );
 }

@@ -1,16 +1,16 @@
 import moment from 'moment';
 
 import { Wrapper, Box, Title, Button } from 'styles/components/Day.style';
-import { ThreeDots } from '@icons';
+import { PlusIcon } from '@icons';
 import Reminder from 'components/Reminder';
 import { useCalendar } from 'contexts/CalendarContext';
 import { useReminders } from 'contexts/RemindersContext';
+import { useForm } from 'contexts/FormContext';
 
 import { isSelected, isToday, isSameMonth, isWeekend } from 'helpers';
 
 export default function Day({ children, day, ...props }) {
   const {
-    setModalDay,
     setModalOpen,
     reminders,
     setOpenReminders,
@@ -18,6 +18,7 @@ export default function Day({ children, day, ...props }) {
     setCurrentReminderIndex,
   } = useReminders();
   const { value } = useCalendar();
+  const { setDate, setTime, setDesc, setTitle, setColor, setCity } = useForm();
   // prettier-ignore
   const filteredReminders = reminders.filter((reminder) => day.isSame(moment(reminder.date), 'day'));
   // prettier-ignore
@@ -28,7 +29,12 @@ export default function Day({ children, day, ...props }) {
   );
   function handleClick() {
     setModalOpen(true);
-    setModalDay(day ?? '');
+    setDate(day.format('YYYY-MM-DD'));
+    setTime(moment().format('HH:mm'));
+    setDesc('');
+    setTitle('');
+    setColor('black');
+    setCity('');
     setOpenReminders(sortedReminders);
     setCurrentReminder(null);
     setCurrentReminderIndex(null);
@@ -37,7 +43,7 @@ export default function Day({ children, day, ...props }) {
   return (
     <Wrapper>
       <Button onClick={() => handleClick()}>
-        <ThreeDots />
+        <PlusIcon />
       </Button>
 
       <Box
@@ -55,9 +61,7 @@ export default function Day({ children, day, ...props }) {
             index={index}
             key={index}
             color={reminder.color}
-          >
-            {reminder.title}
-          </Reminder>
+          />
         ))}
       </Box>
     </Wrapper>
