@@ -13,7 +13,7 @@ export default function ReminderModal({ children, ...props }) {
 
       {openReminders?.map((reminder, index) => (
         <Reminder key={index} color={reminder.color}>
-          {reminder.desc}
+          {reminder.title}
         </Reminder>
       ))}
     </Wrapper>

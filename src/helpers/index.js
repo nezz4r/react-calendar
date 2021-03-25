@@ -35,11 +35,12 @@ export function isWeekend(day) {
 }
 
 export class ReminderClass {
-  constructor(desc, date, time, city, color) {
+  constructor(title, desc, date, time, city, color) {
+    this.title = title;
     this.desc = desc;
+    this.city = city;
     this.date = date;
     this.time = time;
-    this.city = city;
     this.color = color;
   }
 }

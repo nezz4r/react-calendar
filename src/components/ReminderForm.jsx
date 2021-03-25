@@ -31,6 +31,7 @@ export default function ReminderForm() {
     setModalOpen,
     currentReminder,
   } = useReminders();
+
   const {
     date,
     setDate,
@@ -47,12 +48,12 @@ export default function ReminderForm() {
   } = useForm();
 
   useEffect(() => {
-    setDate(modalDay.format('YYYY-MM-DD'));
+    setDate(moment(modalDay).format('YYYY-MM-DD'));
   }, [modalDay]);
 
   function handleSubmit(e) {
     e.preventDefault();
-    const newReminder = new ReminderClass(desc, date, time, city, color);
+    const newReminder = new ReminderClass(title, desc, date, time, city, color);
     const newReminderArr = reminders.slice();
     if (currentReminder) {
       newReminderArr.pop(currentReminder);
@@ -68,6 +69,40 @@ export default function ReminderForm() {
 
   return (
     <form onSubmit={handleSubmit}>
+      <FieldWrapper>
+        <FieldTitle htmlFor="title">Title</FieldTitle>
+        <input
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          name="title"
+          id="title"
+          maxLength="15"
+          required
+        />
+      </FieldWrapper>
+      <FieldWrapper>
+        <FieldTitle htmlFor="desc">Description</FieldTitle>
+        <textarea
+          value={desc}
+          onChange={(e) => setDesc(e.target.value)}
+          name="desc"
+          id="desc"
+          maxLength="30"
+          required
+        />
+      </FieldWrapper>
+
+      <FieldWrapper>
+        <FieldTitle htmlFor="city">City</FieldTitle>
+        <input
+          value={city}
+          onChange={(e) => setCity(e.target.value)}
+          name="city"
+          id="city"
+          maxLength="30"
+          required
+        />
+      </FieldWrapper>
       <FieldWrapper>
         <FieldTitle htmlFor="date">Date</FieldTitle>
         <input
@@ -88,30 +123,6 @@ export default function ReminderForm() {
           name="time"
           id="time"
           type="time"
-          required
-        />
-      </FieldWrapper>
-
-      <FieldWrapper>
-        <FieldTitle htmlFor="city">City</FieldTitle>
-        <input
-          value={city}
-          onChange={(e) => setCity(e.target.value)}
-          name="city"
-          id="city"
-          maxLength="30"
-          required
-        />
-      </FieldWrapper>
-
-      <FieldWrapper>
-        <FieldTitle htmlFor="desc">Description</FieldTitle>
-        <input
-          value={desc}
-          onChange={(e) => setDesc(e.target.value)}
-          name="desc"
-          id="desc"
-          maxLength="30"
           required
         />
       </FieldWrapper>

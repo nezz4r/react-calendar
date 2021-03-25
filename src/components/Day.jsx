@@ -28,7 +28,7 @@ export default function Day({ children, day, ...props }) {
   );
   function handleClick() {
     setModalOpen(true);
-    setModalDay(day);
+    setModalDay(day ?? '');
     setOpenReminders(sortedReminders);
     setCurrentReminder(null);
     setCurrentReminderIndex(null);
@@ -56,7 +56,7 @@ export default function Day({ children, day, ...props }) {
             key={index}
             color={reminder.color}
           >
-            {reminder.desc}
+            {reminder.title}
           </Reminder>
         ))}
       </Box>
