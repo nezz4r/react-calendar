@@ -1,6 +1,4 @@
 import React, { useContext, useState, useEffect } from 'react';
-import moment from 'moment';
-
 import useLocalStorage from 'hooks/useLocalStorage';
 
 const RemindersContext = React.createContext();
@@ -12,7 +10,6 @@ export function useReminders() {
 export default function RemindersProvider({ children, ...props }) {
   const [reminders, setReminders] = useLocalStorage('reminders', []);
   const [isModalOpen, setModalOpen] = useState(false);
-  const [openReminders, setOpenReminders] = useState(null);
   const [position, setPosition] = useState(null);
   const [currentReminder, setCurrentReminder] = useState(null);
   const [currentReminderIndex, setCurrentReminderIndex] = useState(null);
@@ -57,8 +54,6 @@ export default function RemindersProvider({ children, ...props }) {
         setReminders,
         isModalOpen,
         setModalOpen,
-        openReminders,
-        setOpenReminders,
         currentReminder,
         setCurrentReminder,
         currentReminderIndex,

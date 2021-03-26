@@ -18,7 +18,8 @@ export default function Reminder({
 
   const { setDate, setTime, setDesc, setTitle, setColor, setCity } = useForm();
 
-  function handleReminderClick() {
+  function handleReminderClick(e) {
+    e.preventDefault();
     setModalOpen(true);
     setDate(reminder.date);
     setTime(reminder.time);

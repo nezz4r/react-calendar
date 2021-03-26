@@ -42,37 +42,24 @@ export default function ReminderForm() {
   } = useForm();
 
   function handleSubmit(e) {
-    try {
-      e.preventDefault();
-      const newReminder = new ReminderClass(
-        title,
-        desc,
-        date,
-        time,
-        city,
-        color
-      );
+    e.preventDefault();
+    const newReminder = new ReminderClass(title, desc, date, time, city, color);
 
-      const newReminderArr = reminders.filter((reminder) => {
-        if (reminder !== currentReminder) {
-          return true;
-        }
-        return false;
-      });
-      newReminderArr.push(newReminder);
-      setReminders(newReminderArr);
-      setModalOpen(false);
-      setTime(moment(new Date()).format('HH:mm'));
-      setDesc('');
-      setColor('black');
-      setTitle('');
-      setDate('');
-      setCity('');
-      return 'sucess';
-    } catch (err) {
-      console.log(err);
-      return err;
-    }
+    const newReminderArr = reminders.filter((reminder) => {
+      if (reminder !== currentReminder) {
+        return true;
+      }
+      return false;
+    });
+    newReminderArr.push(newReminder);
+    setReminders(newReminderArr);
+    setModalOpen(false);
+    setTime(moment(new Date()).format('HH:mm'));
+    setDesc('');
+    setColor('black');
+    setTitle('');
+    setDate('');
+    setCity('');
   }
 
   function handleDelete(e) {
@@ -131,7 +118,6 @@ export default function ReminderForm() {
           name="city"
           id="city"
           maxLength="30"
-          required
           data-testid="city"
         />
       </FieldWrapper>
