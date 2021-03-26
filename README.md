@@ -20,11 +20,15 @@ You can navigate through the months via the chevron button on the header or by c
 
 ### Reminders
 
-The reminders take a few fields, namely: title (up to 15 characters), description (up to 30 characters), a date, a time, a City (for weather forecast) and a color.
+The reminders take a few fields, namely: title (up to 15 characters), description (up to 30 characters), a date, a time, a City (for weather forecast) and a color, and they will be displayed on the day they were added to, in the correct time order.
 
-You can add a reminder by clicking on the "+" symbol on the day you wish to add it to.
+You can add a reminder by clicking on the "+" symbol on the day you wish to add it to, and then filling the form in the modal.
 
 You can edit, view or delete your reminder by clicking directly on it.
+
+You can also delete all the reminders for a specific day by clicking on the trash can button.
+
+The reminders are also refresh-persistent because they are stored on localStorage.
 
 <br/>
 
