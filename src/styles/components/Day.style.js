@@ -54,8 +54,8 @@ export const Title = styled.h1`
 export const AddButton = styled.button`
   position: absolute;
   padding: 1px 1px;
-  top: 10px;
-  right: 15px;
+  top: 5px;
+  right: 10px;
   border-radius: 5px;
   border: none;
   opacity: 0;
@@ -71,8 +71,8 @@ export const AddButton = styled.button`
 export const DeleteButton = styled.button`
   position: absolute;
   padding: 1px 1px;
-  top: 10px;
-  right: 35px;
+  top: 20px;
+  right: 10px;
   border-radius: 5px;
   border: none;
   opacity: 0;
@@ -83,4 +83,13 @@ export const DeleteButton = styled.button`
   &:focus {
     outline: none;
   }
+`;
+
+export const WeatherWrapper = styled.span`
+  position: absolute;
+  padding: 1px 1px;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
 `;

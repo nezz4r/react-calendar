@@ -1,4 +1,5 @@
 import moment from 'moment';
+import { useEffect, useState } from 'react';
 
 import {
   Wrapper,
@@ -6,13 +7,21 @@ import {
   Title,
   AddButton,
   DeleteButton,
+  WeatherWrapper,
 } from 'styles/components/Day.style';
 import Reminder from 'components/Reminder';
 import { useCalendar } from 'contexts/CalendarContext';
 import { useReminders } from 'contexts/RemindersContext';
 import { useForm } from 'contexts/FormContext';
 
-import { isSelected, isToday, isSameMonth, isWeekend } from 'helpers';
+import {
+  isSelected,
+  isToday,
+  isSameMonth,
+  isWeekend,
+  getWeatherData,
+} from 'helpers';
+import WeatherIcon from 'helpers/WeatherIcon';
 import { PlusIcon, DeleteIcon } from './Icons';
 
 export default function Day({ children, day, ...props }) {
@@ -24,7 +33,15 @@ export default function Day({ children, day, ...props }) {
     setCurrentReminderIndex,
   } = useReminders();
   const { value } = useCalendar();
-  const { setDate, setTime, setDesc, setTitle, setColor, setCity } = useForm();
+  const {
+    setDate,
+    setTime,
+    setDesc,
+    setTitle,
+    setColor,
+    setCity,
+    city,
+  } = useForm();
   // prettier-ignore
   const filteredReminders = reminders.filter((reminder) => day.isSame(moment(reminder.date), 'day'));
   // prettier-ignore
@@ -33,6 +50,20 @@ export default function Day({ children, day, ...props }) {
       moment(`${a.date} ${a.time}`).format('HHmm')
       - moment(`${b.date} ${b.time}`).format('HHmm')
   );
+  const [weatherData, setWeatherData] = useState(null);
+
+  useEffect(() => {
+    if (filteredReminders.length > 0) {
+      getWeatherData(filteredReminders[0].city).then((res) => {
+        setWeatherData(res?.data?.weather[0]?.main);
+        console.log(res);
+        console.log(weatherData);
+      });
+    } else if (filteredReminders.length === 0) {
+      setWeatherData(null);
+    }
+  }, [reminders]);
+
   function handleClick(e) {
     e.preventDefault();
     setModalOpen(true);
@@ -76,6 +107,12 @@ export default function Day({ children, day, ...props }) {
       >
         <DeleteIcon />
       </DeleteButton>
+      <WeatherWrapper>
+        <WeatherIcon
+          style={{ display: weatherData ? 'block' : 'none' }}
+          name={weatherData}
+        />
+      </WeatherWrapper>
 
       <Box
         selected={isSelected(day, value)}

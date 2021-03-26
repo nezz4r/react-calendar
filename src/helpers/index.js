@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 export function buildCalendar(value) {
   const startDay = value.clone().startOf('month').startOf('week');
   const endDay = value.clone().endOf('month').endOf('week');
@@ -43,4 +45,11 @@ export class ReminderClass {
     this.time = time;
     this.color = color;
   }
+}
+
+export async function getWeatherData(city) {
+  const data = await axios(
+    `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.REACT_APP_WEATHER_API_KEY}`
+  );
+  return data;
 }

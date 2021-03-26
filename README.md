@@ -32,6 +32,10 @@ The reminders are also refresh-persistent because they are stored on localStorag
 
 <br/>
 
+### Weather Forecast
+
+Weather forecast shows up on the day when you add a reminder that contains a city.
+
 ## Screenshots
 
 <br/>
