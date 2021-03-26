@@ -61,6 +61,10 @@ height="200">
 
  <br/>
 
+### Environment variables
+
+Environment variables are available in .env.development.local file
+
 ### Installing the dependencies
 
 ```
