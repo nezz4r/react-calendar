@@ -4,15 +4,31 @@
 
 # About The Project
 
+## Overview
+
 This calendar app is made with React, Moment.js and styled with styled-components, for the Jobsity Coding Challenge.
 
 It supports multiple custom reminders per day (of up to 30 characters), editing, deleting, and weather forecast.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
- <br/>
+## Functionalities
 
-## Getting Started
+### Multiple months
+
+You can navigate through the months via the chevron button on the header or by clicking on a day that is not on the current month.
+
+### Reminders
+
+The reminders take a few fields, namely: title (up to 15 characters), description (up to 30 characters), a date, a time, a City (for weather forecast) and a color.
+
+You can add a reminder by clicking on the "+" symbol on the day you wish to add it to.
+
+You can edit, view or delete your reminder by clicking directly on it.
+
+<br/>
+
+# Setting Up
 
 ### Requirements
 
