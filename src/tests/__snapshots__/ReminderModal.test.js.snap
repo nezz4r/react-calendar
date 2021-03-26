@@ -1,0 +1,334 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<div
+  className="sc-bdfBwQ edkQQQ"
+>
+  <div>
+    <button
+      className="sc-gsTCUz bKgILn"
+      onClick={[Function]}
+    >
+      <svg
+        className="sc-bqyKva eueCkV"
+        fill="currentColor"
+        height="1em"
+        stroke="currentColor"
+        strokeWidth="0"
+        style={
+          Object {
+            "color": undefined,
+          }
+        }
+        viewBox="0 0 24 24"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M3,3 L21,21 M3,21 L21,3"
+          fill="none"
+          stroke="#000"
+          strokeWidth="2"
+        />
+      </svg>
+    </button>
+    <form
+      className="sc-pFZIQ itVny"
+      data-testid="form"
+      onSubmit={[Function]}
+    >
+      <div
+        className="sc-dlfnbm hAMvZJ"
+      >
+        <h2
+          className="sc-jSgupP eppZez"
+          htmlFor="title"
+        >
+          Title
+        </h2>
+        <input
+          data-testid="title"
+          id="title"
+          maxLength="15"
+          name="title"
+          onChange={[Function]}
+          required={true}
+          value=""
+        />
+      </div>
+      <div
+        className="sc-dlfnbm hAMvZJ"
+      >
+        <h2
+          className="sc-jSgupP eppZez"
+          htmlFor="desc"
+        >
+          Description
+        </h2>
+        <textarea
+          data-testid="desc"
+          id="desc"
+          maxLength="30"
+          name="desc"
+          onChange={[Function]}
+          required={true}
+          value=""
+        />
+      </div>
+      <div
+        className="sc-dlfnbm hAMvZJ"
+      >
+        <h2
+          className="sc-jSgupP eppZez"
+          htmlFor="city"
+        >
+          City
+        </h2>
+        <input
+          data-testid="city"
+          id="city"
+          maxLength="30"
+          name="city"
+          onChange={[Function]}
+          required={true}
+          value=""
+        />
+      </div>
+      <div
+        className="sc-dlfnbm hAMvZJ"
+      >
+        <h2
+          className="sc-jSgupP eppZez"
+          htmlFor="date"
+        >
+          Date
+        </h2>
+        <input
+          data-testid="date"
+          id="date"
+          name="date"
+          onChange={[Function]}
+          required={true}
+          type="date"
+          value="2021-03-25"
+        />
+      </div>
+      <div
+        className="sc-dlfnbm hAMvZJ"
+      >
+        <h2
+          className="sc-jSgupP eppZez"
+          htmlFor="time"
+        >
+          Time
+        </h2>
+        <input
+          data-testid="time"
+          id="time"
+          name="time"
+          onChange={[Function]}
+          required={true}
+          type="time"
+          value="22:19"
+        />
+      </div>
+      <div
+        className="sc-dlfnbm hAMvZJ"
+      >
+        <h2
+          className="sc-jSgupP eppZez"
+        >
+          Color
+        </h2>
+        <div
+          className="sc-hKgILt fLBhSJ"
+        >
+          <input
+            checked={true}
+            className="sc-gKsewC jQPtwe"
+            data-testid="color-black"
+            id="black"
+            name="color"
+            onChange={[Function]}
+            onClick={[Function]}
+            type="radio"
+            value="black"
+          />
+          <label
+            className="sc-iBPRYJ eqkoUw"
+            htmlFor="black"
+          >
+            <span
+              className="sc-fubCfw dKlDcJ"
+              color="black"
+            />
+          </label>
+          <input
+            checked={false}
+            className="sc-gKsewC jQPtwe"
+            data-testid="color-turquoise"
+            id="turquoise"
+            name="color"
+            onChange={[Function]}
+            onClick={[Function]}
+            type="radio"
+            value="turquoise"
+          />
+          <label
+            className="sc-iBPRYJ eqkoUw"
+            htmlFor="turquoise"
+          >
+            <span
+              className="sc-fubCfw jwUPJp"
+              color="turquoise"
+            />
+          </label>
+          <input
+            checked={false}
+            className="sc-gKsewC jQPtwe"
+            data-testid="color-blue"
+            id="blue"
+            name="color"
+            onChange={[Function]}
+            onClick={[Function]}
+            type="radio"
+            value="blue"
+          />
+          <label
+            className="sc-iBPRYJ eqkoUw"
+            htmlFor="blue"
+          >
+            <span
+              className="sc-fubCfw liYjYQ"
+              color="blue"
+            />
+          </label>
+          <input
+            checked={false}
+            className="sc-gKsewC jQPtwe"
+            data-testid="color-yellow"
+            id="yellow"
+            name="color"
+            onChange={[Function]}
+            onClick={[Function]}
+            type="radio"
+            value="yellow"
+          />
+          <label
+            className="sc-iBPRYJ eqkoUw"
+            htmlFor="yellow"
+          >
+            <span
+              className="sc-fubCfw drnMCi"
+              color="yellow"
+            />
+          </label>
+          <input
+            checked={false}
+            className="sc-gKsewC jQPtwe"
+            data-testid="color-orange"
+            id="orange"
+            name="color"
+            onChange={[Function]}
+            onClick={[Function]}
+            type="radio"
+            value="orange"
+          />
+          <label
+            className="sc-iBPRYJ eqkoUw"
+            htmlFor="orange"
+          >
+            <span
+              className="sc-fubCfw eYgYqm"
+              color="orange"
+            />
+          </label>
+          <input
+            checked={false}
+            className="sc-gKsewC jQPtwe"
+            data-testid="color-pink"
+            id="pink"
+            name="color"
+            onChange={[Function]}
+            onClick={[Function]}
+            type="radio"
+            value="pink"
+          />
+          <label
+            className="sc-iBPRYJ eqkoUw"
+            htmlFor="pink"
+          >
+            <span
+              className="sc-fubCfw cmtfPC"
+              color="pink"
+            />
+          </label>
+          <input
+            checked={false}
+            className="sc-gKsewC jQPtwe"
+            data-testid="color-red"
+            id="red"
+            name="color"
+            onChange={[Function]}
+            onClick={[Function]}
+            type="radio"
+            value="red"
+          />
+          <label
+            className="sc-iBPRYJ eqkoUw"
+            htmlFor="red"
+          >
+            <span
+              className="sc-fubCfw jQOwTl"
+              color="red"
+            />
+          </label>
+          <input
+            checked={false}
+            className="sc-gKsewC jQPtwe"
+            data-testid="color-brown"
+            id="brown"
+            name="color"
+            onChange={[Function]}
+            onClick={[Function]}
+            type="radio"
+            value="brown"
+          />
+          <label
+            className="sc-iBPRYJ eqkoUw"
+            htmlFor="brown"
+          >
+            <span
+              className="sc-fubCfw cgmBng"
+              color="brown"
+            />
+          </label>
+        </div>
+      </div>
+      <div
+        className="sc-eCssSg iXxLoD"
+      >
+        <button
+          className="sc-kEjbxe bdBqZh"
+          onClick={[Function]}
+          style={
+            Object {
+              "display": "none",
+            }
+          }
+          type="button"
+        >
+          Delete
+        </button>
+        <button
+          className="sc-jrAGrp cNOZyi"
+          data-testid="submit"
+          type="submit"
+        >
+          Save
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
