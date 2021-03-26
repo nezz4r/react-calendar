@@ -28,7 +28,6 @@ it('renders correctly', () => {
   expect(getByTestId('desc')).toHaveAttribute('required');
   expect(getByTestId('desc')).toHaveAttribute('maxlength');
   expect(getByTestId('date')).toHaveAttribute('required');
-  expect(getByTestId('city')).toHaveAttribute('required');
   expect(getByTestId('time')).toHaveAttribute('required');
   expect(getByTestId('date')).toHaveAttribute('required');
   expect(getByTestId('color-black')).toHaveAttribute('checked');
