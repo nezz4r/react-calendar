@@ -1,13 +1,13 @@
 import moment from 'moment';
 
 import { Wrapper, Box, Title, Button } from 'styles/components/Day.style';
-import { PlusIcon } from '@icons';
 import Reminder from 'components/Reminder';
 import { useCalendar } from 'contexts/CalendarContext';
 import { useReminders } from 'contexts/RemindersContext';
 import { useForm } from 'contexts/FormContext';
 
 import { isSelected, isToday, isSameMonth, isWeekend } from 'helpers';
+import { PlusIcon } from './Icons';
 
 export default function Day({ children, day, ...props }) {
   const {
@@ -60,7 +60,6 @@ export default function Day({ children, day, ...props }) {
             reminder={reminder}
             index={index}
             key={index}
-            color={reminder.color}
           />
         ))}
       </Box>

@@ -5,7 +5,7 @@ import {
   WeekDay,
 } from 'styles/components/Header.style';
 import { useCalendar } from 'contexts/CalendarContext';
-import { ArrowLeftIcon, ArrowRightIcon } from '@icons';
+import { ArrowLeftIcon, ArrowRightIcon } from './Icons';
 
 const weekDays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 

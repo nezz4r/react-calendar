@@ -1,4 +1,4 @@
-import { Wrapper } from 'styles/components/Reminder.style';
+import { Wrapper, Title, HoverDiv } from 'styles/components/Reminder.style';
 import { useReminders } from 'contexts/RemindersContext';
 import { useForm } from 'contexts/FormContext';
 
@@ -32,9 +32,12 @@ export default function Reminder({
   }
 
   return (
-    <Wrapper onClick={handleReminderClick} {...props}>
-      <span>{reminder?.title}</span>
-      <span>{reminder.time}</span>
-    </Wrapper>
+    <>
+      <Wrapper onClick={handleReminderClick} color={reminder.color} {...props}>
+        <Title>{reminder?.title}</Title>
+        <span>{reminder.time}</span>
+      </Wrapper>
+      <HoverDiv>{reminder.desc}</HoverDiv>
+    </>
   );
 }

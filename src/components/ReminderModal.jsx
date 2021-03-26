@@ -1,7 +1,7 @@
 import { Wrapper, CloseButton } from 'styles/components/ReminderModal.style';
 import { useReminders } from 'contexts/RemindersContext';
-import ReminderForm from 'components/ReminderForm';
-import { CloseIcon } from '@icons';
+import ReminderForm from './ReminderForm';
+import { CloseIcon } from './Icons';
 
 export default function ReminderModal({ children, ...props }) {
   const { isModalOpen, setModalOpen } = useReminders();

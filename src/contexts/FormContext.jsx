@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useState } from 'react';
 import moment from 'moment';
 
 const FormContext = React.createContext();
@@ -25,11 +25,6 @@ export default function FormProvider({ children, ...props }) {
   const [desc, setDesc] = useState('');
   const [city, setCity] = useState('');
   const [color, setColor] = useState('black');
-  const [rerender, setRerender] = useState(false);
-
-  useEffect(() => {
-    setRerender(!rerender);
-  }, [color]);
 
   return (
     <FormContext.Provider
@@ -47,7 +42,6 @@ export default function FormProvider({ children, ...props }) {
         color,
         setColor,
         colorsArray,
-        rerender,
       }}
     >
       {children}
