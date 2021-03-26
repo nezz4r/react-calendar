@@ -27,7 +27,6 @@ export default function Reminder({
     setTitle(reminder.title);
     setColor(reminder.color);
     setCity(reminder.city);
-    setOpenReminders(sortedReminders);
     setCurrentReminder(reminder);
     setCurrentReminderIndex(index);
   }

@@ -70,7 +70,10 @@ export default function Day({ children, day, ...props }) {
       <AddButton onClick={handleClick}>
         <PlusIcon />
       </AddButton>
-      <DeleteButton onClick={handleDeleteAll}>
+      <DeleteButton
+        style={{ display: sortedReminders.length ? 'block' : 'none' }}
+        onClick={handleDeleteAll}
+      >
         <DeleteIcon />
       </DeleteButton>
 
