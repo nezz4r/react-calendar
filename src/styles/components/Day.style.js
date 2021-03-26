@@ -51,11 +51,28 @@ export const Title = styled.h1`
   font-size: 20px;
 `;
 
-export const Button = styled.button`
+export const AddButton = styled.button`
   position: absolute;
   padding: 1px 1px;
   top: 10px;
   right: 15px;
+  border-radius: 5px;
+  border: none;
+  opacity: 0;
+  background: none;
+  transition: opacity 0.2s ease;
+  z-index: 2;
+
+  &:focus {
+    outline: none;
+  }
+`;
+
+export const DeleteButton = styled.button`
+  position: absolute;
+  padding: 1px 1px;
+  top: 10px;
+  right: 40px;
   border-radius: 5px;
   border: none;
   opacity: 0;

@@ -1,19 +1,25 @@
 import moment from 'moment';
 
-import { Wrapper, Box, Title, Button } from 'styles/components/Day.style';
+import {
+  Wrapper,
+  Box,
+  Title,
+  AddButton,
+  DeleteButton,
+} from 'styles/components/Day.style';
 import Reminder from 'components/Reminder';
 import { useCalendar } from 'contexts/CalendarContext';
 import { useReminders } from 'contexts/RemindersContext';
 import { useForm } from 'contexts/FormContext';
 
 import { isSelected, isToday, isSameMonth, isWeekend } from 'helpers';
-import { PlusIcon } from './Icons';
+import { PlusIcon, DeleteIcon } from './Icons';
 
 export default function Day({ children, day, ...props }) {
   const {
     setModalOpen,
     reminders,
-    setOpenReminders,
+    setReminders,
     setCurrentReminder,
     setCurrentReminderIndex,
   } = useReminders();
@@ -27,7 +33,8 @@ export default function Day({ children, day, ...props }) {
       moment(`${a.date} ${a.time}`).format('HHmm')
       - moment(`${b.date} ${b.time}`).format('HHmm')
   );
-  function handleClick() {
+  function handleClick(e) {
+    e.preventDefault();
     setModalOpen(true);
     setDate(day.format('YYYY-MM-DD'));
     setTime(moment().format('HH:mm'));
@@ -35,16 +42,37 @@ export default function Day({ children, day, ...props }) {
     setTitle('');
     setColor('black');
     setCity('');
-    setOpenReminders(sortedReminders);
     setCurrentReminder(null);
     setCurrentReminderIndex(null);
   }
 
+  function handleDeleteAll(e) {
+    e.preventDefault();
+
+    const newReminderArr = reminders.filter((reminder) => {
+      if (reminder.date !== day.format('YYYY-MM-DD')) {
+        return true;
+      }
+      return false;
+    });
+
+    setReminders(newReminderArr);
+    setModalOpen(false);
+    setTime(moment(new Date()).format('HH:mm'));
+    setDesc('');
+    setColor('black');
+    setTitle('');
+    setDate('');
+    setCity('');
+  }
   return (
     <Wrapper>
-      <Button onClick={() => handleClick()}>
+      <AddButton onClick={handleClick}>
         <PlusIcon />
-      </Button>
+      </AddButton>
+      <DeleteButton onClick={handleDeleteAll}>
+        <DeleteIcon />
+      </DeleteButton>
 
       <Box
         selected={isSelected(day, value)}
