@@ -32,5 +32,6 @@ module.exports = {
     'no-shadow': 'off',
     'object-curly-newline': 'off',
     'no-nested-ternary': 'off',
+    'react-hooks/exhaustive-deps': 'off',
   },
 };

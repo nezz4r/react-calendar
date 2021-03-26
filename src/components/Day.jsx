@@ -33,15 +33,7 @@ export default function Day({ children, day, ...props }) {
     setCurrentReminderIndex,
   } = useReminders();
   const { value } = useCalendar();
-  const {
-    setDate,
-    setTime,
-    setDesc,
-    setTitle,
-    setColor,
-    setCity,
-    city,
-  } = useForm();
+  const { setDate, setTime, setDesc, setTitle, setColor, setCity } = useForm();
   // prettier-ignore
   const filteredReminders = reminders.filter((reminder) => day.isSame(moment(reminder.date), 'day'));
   // prettier-ignore
@@ -56,8 +48,6 @@ export default function Day({ children, day, ...props }) {
     if (filteredReminders.length > 0) {
       getWeatherData(filteredReminders[0].city).then((res) => {
         setWeatherData(res?.data?.weather[0]?.main);
-        console.log(res);
-        console.log(weatherData);
       });
     } else if (filteredReminders.length === 0) {
       setWeatherData(null);
