@@ -1,3 +1,4 @@
+import { Fragment } from 'react';
 import moment from 'moment';
 import {
   RadioInput,
@@ -22,7 +23,6 @@ export default function ReminderForm() {
     setReminders,
     setModalOpen,
     currentReminder,
-    currentReminderIndex,
   } = useReminders();
 
   const {
@@ -42,32 +42,44 @@ export default function ReminderForm() {
   } = useForm();
 
   function handleSubmit(e) {
-    e.preventDefault();
-    const newReminder = new ReminderClass(title, desc, date, time, city, color);
+    try {
+      e.preventDefault();
+      const newReminder = new ReminderClass(
+        title,
+        desc,
+        date,
+        time,
+        city,
+        color
+      );
 
-    const newReminderArr = reminders.filter((reminder) => {
-      if (reminder != currentReminder) {
-        return true;
-      }
-      return false;
-    });
-
-    newReminderArr.push(newReminder);
-    setReminders(newReminderArr);
-    setModalOpen(false);
-    setTime(moment(new Date()).format('HH:mm'));
-    setDesc('');
-    setColor('black');
-    setTitle('');
-    setDate('');
-    setCity('');
+      const newReminderArr = reminders.filter((reminder) => {
+        if (reminder !== currentReminder) {
+          return true;
+        }
+        return false;
+      });
+      newReminderArr.push(newReminder);
+      setReminders(newReminderArr);
+      setModalOpen(false);
+      setTime(moment(new Date()).format('HH:mm'));
+      setDesc('');
+      setColor('black');
+      setTitle('');
+      setDate('');
+      setCity('');
+      return 'sucess';
+    } catch (err) {
+      console.log(err);
+      return err;
+    }
   }
 
   function handleDelete(e) {
     e.preventDefault();
 
     const newReminderArr = reminders.filter((reminder) => {
-      if (reminder != currentReminder) {
+      if (reminder !== currentReminder) {
         return true;
       }
       return false;
@@ -84,7 +96,7 @@ export default function ReminderForm() {
   }
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form data-testid="form" onSubmit={handleSubmit}>
       <FieldWrapper>
         <FieldTitle htmlFor="title">Title</FieldTitle>
         <input
@@ -94,6 +106,7 @@ export default function ReminderForm() {
           id="title"
           maxLength="15"
           required
+          data-testid="title"
         />
       </FieldWrapper>
 
@@ -106,6 +119,7 @@ export default function ReminderForm() {
           id="desc"
           maxLength="30"
           required
+          data-testid="desc"
         />
       </FieldWrapper>
 
@@ -118,6 +132,7 @@ export default function ReminderForm() {
           id="city"
           maxLength="30"
           required
+          data-testid="city"
         />
       </FieldWrapper>
 
@@ -130,6 +145,7 @@ export default function ReminderForm() {
           id="date"
           type="date"
           required
+          data-testid="date"
         />
       </FieldWrapper>
 
@@ -142,6 +158,7 @@ export default function ReminderForm() {
           id="time"
           type="time"
           required
+          data-testid="time"
         />
       </FieldWrapper>
 
@@ -149,7 +166,7 @@ export default function ReminderForm() {
         <FieldTitle>Color</FieldTitle>
         <ColorWrapper>
           {colorsArray.map((colorProp) => (
-            <>
+            <Fragment key={`${colorProp}-wrapper`}>
               <RadioInput
                 checked={colorProp === color}
                 type="radio"
@@ -157,12 +174,13 @@ export default function ReminderForm() {
                 id={colorProp}
                 value={colorProp}
                 onClick={() => setColor(colorProp)}
-                key={colorProp}
+                data-testid={`color-${colorProp}`}
+                onChange={() => {}}
               />
-              <RadioLabel key={`${colorProp}-label`} htmlFor={colorProp}>
-                <RadioSpan key={`${colorProp}-span`} color={colorProp} />
+              <RadioLabel htmlFor={colorProp}>
+                <RadioSpan color={colorProp} />
               </RadioLabel>
-            </>
+            </Fragment>
           ))}
         </ColorWrapper>
       </FieldWrapper>
@@ -175,7 +193,9 @@ export default function ReminderForm() {
         >
           Delete
         </DeleteButton>
-        <SaveButton type="submit">Save</SaveButton>
+        <SaveButton data-testid="submit" type="submit">
+          Save
+        </SaveButton>
       </ButtonWrapper>
     </Form>
   );

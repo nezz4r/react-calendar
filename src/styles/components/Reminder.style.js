@@ -5,7 +5,6 @@ export const Wrapper = styled.div`
   border-radius: 3px;
   background-color: var(--rm-${({ color }) => color ?? 'black'});
   padding: 1px 4px;
-  overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
   color: var(--light);
@@ -19,4 +18,24 @@ export const Wrapper = styled.div`
   &:hover {
     filter: brightness(1.1);
   }
+`;
+
+export const Title = styled.h3`
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: inherit;
+  color: inherit;
+`;
+
+export const HoverDiv = styled.div`
+  height: 30px;
+  width: 1000px;
+  position: absolute;
+  background: black;
+  top: 20px;
+  left: -0px;
+  z-index: 10;
+  white-space: wrap;
+  display: none;
 `;
