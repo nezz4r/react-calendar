@@ -72,7 +72,7 @@ export const DeleteButton = styled.button`
   position: absolute;
   padding: 1px 1px;
   top: 10px;
-  right: 40px;
+  right: 35px;
   border-radius: 5px;
   border: none;
   opacity: 0;
