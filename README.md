@@ -32,6 +32,22 @@ The reminders are also refresh-persistent because they are stored on localStorag
 
 <br/>
 
+### Screenshots
+
+<br/>
+
+<img src="https://i.imgur.com/cMAcJyu.png" alt="Screenshot 1"
+width="350"
+height="200">
+
+<img src="https://i.imgur.com/BFbkv1U.png" alt="Screenshot 1"
+width="350"
+height="200">
+
+<img src="https://i.imgur.com/KdncbIa.png" alt="Screenshot 1"
+width="350"
+height="200">
+
 # Setting Up
 
 ### Requirements
