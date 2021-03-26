@@ -11,7 +11,6 @@ export default function Reminder({
 }) {
   const {
     setModalOpen,
-    setOpenReminders,
     setCurrentReminder,
     setCurrentReminderIndex,
   } = useReminders();

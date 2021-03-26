@@ -32,7 +32,7 @@ The reminders are also refresh-persistent because they are stored on localStorag
 
 <br/>
 
-### Screenshots
+## Screenshots
 
 <br/>
 

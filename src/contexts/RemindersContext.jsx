@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useState } from 'react';
 import useLocalStorage from 'hooks/useLocalStorage';
 
 const RemindersContext = React.createContext();
@@ -10,20 +10,15 @@ export function useReminders() {
 export default function RemindersProvider({ children, ...props }) {
   const [reminders, setReminders] = useLocalStorage('reminders', []);
   const [isModalOpen, setModalOpen] = useState(false);
-  const [position, setPosition] = useState(null);
   const [currentReminder, setCurrentReminder] = useState(null);
   const [currentReminderIndex, setCurrentReminderIndex] = useState(null);
 
   // const notify = new Audio('/notification.mp3');
 
   // prettier-ignore
-  useEffect(() => {
-    if ('geolocation' in navigator) {
-      navigator.geolocation.getCurrentPosition((position) =>
-        setPosition(position));
-    }
-    // Notification.requestPermission();
-  }, []);
+  // useEffect(() => {
+  //   Notification.requestPermission();
+  // }, []);
 
   // useEffect(() => {
   //   reminders.forEach((reminder) => {
