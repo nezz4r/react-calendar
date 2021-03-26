@@ -4,6 +4,12 @@
 
 # About The Project
 
+## Preview
+
+The project can be previewed on https://calendar.raulv.tech
+
+<br/>
+
 ## Overview
 
 This calendar app is made with React, Moment.js and styled with styled-components, for the Jobsity Coding Challenge.
@@ -11,6 +17,8 @@ This calendar app is made with React, Moment.js and styled with styled-component
 It supports multiple custom reminders per day (of up to 30 characters), editing, deleting, and weather forecast.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+<br/>
 
 ## Features
 
