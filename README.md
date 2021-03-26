@@ -12,7 +12,7 @@ It supports multiple custom reminders per day (of up to 30 characters), editing,
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Functionalities
+## Features
 
 ### Multiple months
 
@@ -30,11 +30,11 @@ You can also delete all the reminders for a specific day by clicking on the tras
 
 The reminders are also refresh-persistent because they are stored on localStorage.
 
-<br/>
-
 ### Weather Forecast
 
 Weather forecast shows up on the day when you add a reminder that contains a city.
+
+<br/>
 
 ## Screenshots
 
