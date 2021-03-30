@@ -1,9 +1,21 @@
 import styled from 'styled-components';
 
 export const FieldWrapper = styled.div`
-  padding: 2px 0;
+  margin: 3px 0;
   display: flex;
   flex-direction: column;
+  & > input,
+  & > textarea {
+    border-radius: 3px;
+    border: 1px solid grey;
+  }
+`;
+
+export const FieldTitle = styled.h2`
+  padding: 10px 0;
+  font-family: var(--font-title);
+  font-weight: 600;
+  font-size: 16px;
 `;
 
 export const ColorWrapper = styled.div`
@@ -17,13 +29,6 @@ export const ButtonWrapper = styled.div`
   width: 100%;
   padding: 30px 0 10px;
   gap: 10px;
-`;
-
-export const FieldTitle = styled.h2`
-  padding: 10px 0;
-  font-family: var(--font-title);
-  font-weight: 600;
-  font-size: 16px;
 `;
 
 export const RadioInput = styled.input`

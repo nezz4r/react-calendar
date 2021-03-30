@@ -29,7 +29,7 @@ export const Box = styled.div`
   filter: brightness(
     ${({ before, selected }) => (before ? '0.9' : selected ? '0.95' : '1')}
   );
-  overflow: scroll;
+  overflow-y: scroll;
 
   &:hover {
     filter: brightness(0.95);
@@ -37,6 +37,15 @@ export const Box = styled.div`
       opacity: 1;
     }
   }
+  &::-webkit-scrollbar{
+    display: block;
+    overflow: auto;
+    width: 6px;
+    background-color: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.1);
+}
 `;
 
 export const Title = styled.h1`
